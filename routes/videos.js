@@ -36,7 +36,7 @@ router.route('/videos')
         title,
         description,
         channel: "New User",
-        image: "/image9.jpg",
+        image: "http://localhost:8080/image9.jpg",
         views: 0,
         likes: 0,
         duration: "5:32",
