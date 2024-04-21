@@ -51,12 +51,10 @@ router.route('/videos')
 
 router.get('/videos/:videoId', (req, res) => {
     const { videoId } = req.params;
-    //const { api_key } = req.query;
-    //if(!api_key) return res.status(401).json([{message: "unauthorized"}])
     let videos = getVideos();
-    videos = videos.filter(video => video.id === videoId)
-    if(!videos.length) return res.status(404).json([{message: "no matches"}])
-    res.status(200).json(videos);
+    const video = videos.find(video => video.id === videoId)
+    if(!video) return res.status(404).json([{message: "no matches"}])
+    res.status(200).json(video);
   })
 
 export {router as videoRoutes}
